@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>DETAIL</title>
+</head>
+<body>
+    <h2>DETAIL DATA</h2>
+    <form action="/update" method="post">
+        <th:block th:each="data_diri : ${dataDiriList}">
+            <input type="hidden" th:value="${data_diri.id}" name="id" />
+            <label for="input_nama">Nama : </label>
+            <input id="input_nama" type="text" th:value="${data_diri.nama}" name="nama" />
+            <label for="input_umur">Umur : </label>
+            <input id="input_umur" type="number" th:value="${data_diri.umur}" name="umur" />
+        </th:block>
+        <button type="submit">UPDATE</button>
+    </form>
+</body>
+</html>

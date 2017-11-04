@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>SHOW DATA</title>
+</head>
+<body>
+    <h2>SHOW ALL DATA</h2>
+    <table>
+        <thead>
+            <th>ID</th>
+            <th>NAMA</th>
+            <th>UMUR</th>
+            <th>EDIT</th>
+            <th>LIHAT NAMA</th>
+            <th>DELETE</th>
+        </thead>
+        <tbody>
+            <th:block th:each="data_diri : ${dataDiriList}">
+                <tr>
+                    <td th:text="${data_diri.id}" />
+                    <td th:text="${data_diri.nama}"/>
+                    <td th:text="${data_diri.umur}"/>
+                    <td><a th:href="@{/details/{id}(id=${data_diri.id})}">EDIT</a></td>
+                    <td><a th:href="@{/nama/{id}(id=${data_diri.id})}">LIHAT NAMA</a></td>
+                    <td><a th:href="@{/delete/{id}(id=${data_diri.id})}">DELETE</a></td>
+                </tr>
+            </th:block>
+        </tbody>
+    </table>
+</body>
+</html>
